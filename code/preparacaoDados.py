@@ -8,8 +8,6 @@ import matplotlib.pyplot as plt
 from mlflow.models.signature import infer_signature
 from sklearn.model_selection import train_test_split
 
-
-
 nome_run = 'Fabio'
 
 mlflow.set_tracking_uri("http://localhost:5000")
@@ -144,33 +142,6 @@ for tipo in ['dev', 'prod']:
             # salvando o dataset de treinamento escalonado
             df_test_escalonado.to_parquet(f"{dataset_path}base_test_escalonado.parquet")
             df_test_escalonado.to_csv(f"{dataset_path}base_test_escalonado.csv")
-
-        
-
-        # 6.C Explicação sobre a divisão de dados e estratégias para minimizar o viés
-        explicacao = """
-        6.C Explique como a escolha de treino e teste afetam o resultado do modelo ﬁnal. Quais estratégias ajudam a minimizar os efeitos de viés de dados.:
-
-        A divisão dos dados em conjuntos de treino e teste de forma aleatória e estratificada é fundamental 
-        para avaliar a capacidade do modelo de generalizar para novos dados. A estratificação garante que 
-        ambos os conjuntos tenham uma distribuição semelhante da variável alvo, ajudando a minimizar o viés 
-        e melhorar a robustez do modelo. Para mitigar ainda mais o viés de dados e possíveis overfitting, 
-        podem-se utilizar técnicas como validação cruzada, injeção de dados (quando aplicável) e 
-        garantir a representatividade dos dados de treino em relação ao problema real que se deseja modelar.
-        """
-        file_explicacao = "../output/txt/parte_explicaco_6C.txt"
-        ptools.var_text_to_file(explicacao, file_explicacao)
-        mlflow.log_artifact(file_explicacao)
-
-        # 8.a O modelo é aderente a essa nova base? O que mudou entre uma base e outra? Justiﬁque.
-        explicacao = """
-        6.C O modelo é aderente a essa nova base? O que mudou entre uma base e outra? Justiﬁque.
-        O modelo não se mostrou nem um pouco aderente à base de produção. Posso dizer que os dados de produção não estão compatíveis com os de testes. Um exemplo é na coluna 'shot_distance' de treinamento, que possui valores na faixa entre 0 e 23, enquanto em produção o intervalo vai até 79. Estas discrepâncias na faixa dinâmica em TODAS as variáveis entre treinamento e produção produzem um cenário de realidade incompatível com o que foi treinado. Os dados da realidade não estavam corretamente simulados no dataset de treino.
-        A precisão e o recall para a classe 1 são ambos 0,0. Isso significa que o modelo não conseguiu identificar corretamente nenhum dos exemplos positivos. A precisão para a Classe 0 é de 0,67, o que é relativamente moderado, mas ela é acompanhada por um recall de 1,00. O modelo está classificando todos os exemplos como pertencentes à classe 0, ignorando completamente a classe 1. O F1-Score para a classe 0 é de 0,80, que é razoavelmente alto devido ao alto recall, mas isso ocorre porque o modelo simplesmente classifica todos os exemplos como classe 0.
-        """
-        file_explicacao = "../output/txt/parte_explicaco_6C.txt"
-        ptools.var_text_to_file(explicacao, file_explicacao)
-        mlflow.log_artifact(file_explicacao)
 
         # plotagem dos histogramas de densidade das variáveis
         for tipo_base in ['train', 'test']:

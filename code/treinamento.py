@@ -92,11 +92,6 @@ with mlflow.start_run():
     plt.savefig(f"{img_confusion_path}dt.png")
     mlflow.log_artifact(f"{img_confusion_path}dt.png")
 
-    escolha_do_modelo = '''
-    A escolha deve ser baseada em qual modelo apresenta o melhor equilíbrio entre essas métricas, priorizando um menor log_loss e um F1_score mais alto para um melhor desempenho geral.\n
-    Se a Regressão Logística apresentar um log_loss significativamente menor, ela pode ser preferível pela sua capacidade de generalização. Por outro lado, se a Árvore de Decisão mostrar um F1_score muito superior e um log_loss competitivo, ela pode ser a melhor escolha devido à sua capacidade de lidar melhor com a complexidade dos dados.
-    A decisão final deve ser tomada considerando o objetivo do modelo e o trade-off entre precisão e generalização.
-    '''
     #---------------------------
     # curva ROC
     # Aplica os modelos no conjunto de teste para obter as probabilidades preditas
