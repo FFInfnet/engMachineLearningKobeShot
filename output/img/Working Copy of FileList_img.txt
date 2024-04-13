@@ -1,0 +1,33 @@
+﻿:35
+
+
+base_train_amplitude_variaveis.png
+base_train_amplitude_variaveis_escalonadas.png
+base_train_dev_describe.png
+base_train_dev_info.png
+base_train_distr_outliers.png
+base_train_matrix_correlacao.png
+base_train_relacao_variaveis.png
+curva_DT.png
+curva_LR.png
+matriz_confusao_dt.png
+matriz_confusao_lr.png
+test_hist_density_lat.png
+test_hist_density_lon.png
+test_hist_density_minutes_remaining.png
+test_hist_density_period.png
+test_hist_density_playoffs.png
+test_hist_density_shot_distance.png
+teste_curva_roc.png
+train_hist_density_lat.png
+train_hist_density_lon.png
+train_hist_density_minutes_remaining.png
+train_hist_density_period.png
+train_hist_density_playoffs.png
+train_hist_density_shot_distance.png
+----------------------------------------------------------------------------------------------------
+Pasta: "img"          Número de arquivos: 26          Tamanho dos arquivos: 1.300.841
+
+----------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------
+Resumo - Pastas: 0          Arquivos: 26          Tamanho dos arquivos: 1.300.841 Bytes
