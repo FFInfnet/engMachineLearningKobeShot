@@ -161,9 +161,11 @@ def info_to_string(df):
     info_str = '\n'.join(reversed(info_lines))
     return info_str
 
-def teste():
+def balanceamento_classes():
     # vamos verificar o balanceamento de classes
     plt.bar(x=df_wine['rotulo'].value_counts(normalize=True).index,
             height=df_wine['rotulo'].value_counts(normalize=True).values)
     plt.xticks(ticks=[0, 1], labels=['REGULAR', 'OTIMO']) # nomeia os eixos
     plt.show()
+
+    
